@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>加减法练习</title>
+    <style>
+    body {
+        font-size: 30px;
+    }
+    
+    button {
+        font-size: 30px;
+        width: 100%;
+    }
+    
+    input[type='number'] {
+        width: 40px;
+        font-size: 30px;
+    }
+    
+    #main input {
+        font-size: 24px;
+    }
+    
+    #main {
+        font-size: 24px;
+    }
+    
+    #main div,
+    li {
+        margin: 5px;
+    }
+    
+    li:nth-child(odd) {
+        background-color: #fff9c3;
+    }
+    
+    #answerDiv,
+    #resultDiv {
+        display: none;
+    }
+    
+    ol {
+        list-style: none;
+        counter-reset: li
+    }
+    
+    li::before {
+        content: "."counter(li);
+        color: #9e9e9e;
+        display: inline-block;
+        width: 1.5em;
+        margin-left: -1.5em;
+        margin-right: 0.5em;
+        text-align: right;
+        direction: rtl;
+        /*background-color: #eeeeee;*/
+    }
+    
+    li {
+        counter-increment: li
+    }
+    
+    #time {
+        position: fixed;
+        right: 5px;
+        top: 3px;
+        background-color: #87ceeb;
+        padding: 2px 5px;
+    }
+    #questions {
+    	margin-top:50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div>
+            <input type="checkbox" checked="checked" id="add10">
+            <label for="add10">10以内的加法</label>
+            <input type="number" id="add10_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" checked="checked" id="sub10">
+            <label for="sub10">10以内的减法</label>
+            <input type="number" id="sub10_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" id="add20">
+            <label for="add20">20以内的加法(不进位)</label>
+            <input type="number" id="add20_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" id="sub20">
+            <label for="sub20">20以内的减法(不退位)</label>
+            <input type="number" id="sub20_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" id="add20_1">
+            <label for="add20_1">20以内的加法</label>
+            <input type="number" id="add20_1_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" id="sub20_1">
+            <label for="sub20_1">20以内的减法</label>
+            <input type="number" id="sub20_1_count" value="10">
+        </div>
+        <div>
+            <input type="checkbox" id="randomList">
+            <label for="randomList">随机顺序</label>
+        </div>
+        <button id='start'>开始</button>
+        <!-- ＋－ -->
+    </div>
+    <div id="answerDiv">
+        <div id="time">00:00</div>
+        <ol id='questions'>
+            <li>111</li>
+            <li>111</li>
+        </ol>
+        <button id='submitQuestion'>完成</button>
+    </div>
+    <div id="resultDiv">
+        <div id='result'></div>
+        <button id='gotoHome'>返回</button>
+    </div>
+    <div>
+        <br />
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
