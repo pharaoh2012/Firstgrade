@@ -1,7 +1,7 @@
 function random(num) {
 	return Math.floor(Math.random() * num);
 }
-var types = ['add10', 'sub10', 'add20', 'sub20', 'add20_1', 'sub20_1'];
+var types = ['add10', 'sub10', 'add20', 'sub20', 'add20_1', 'sub20_1', 'add20_2', 'sub20_2'];
 
 var g_begintime;
 var g_timeId=0;
@@ -77,6 +77,26 @@ createQuestion.add20_1 = function(count) {
 	return result;
 };
 
+createQuestion.add20_2 = function(count) {
+	var result = [];
+
+	while (result.length < count) {
+		var num1 = random(10);
+		var num2 = random(10);
+		var sum = num1+num2;
+		if ((sum <= 20)&& (sum>10)) {
+			if(isSame(result,num1,num2)) continue;
+			result.push({
+				number: [num1, num2],
+				display: num1 + "＋" + num2 + "=",
+				answer: num1 + num2
+			});
+		}
+	}
+	console.info(result);
+	return result;
+};
+
 createQuestion.sub10 = function(count) {
 	var result = [];
 
@@ -138,6 +158,30 @@ createQuestion.sub20_1 = function(count) {
 			num2 = tmp;
 		}
 		if ((num1 - num2) >= 0) {
+			if(isSame(result,num1,num2)) continue;
+			result.push({
+				number: [num1, num2],
+				display: num1 + "－" + num2 + "=",
+				answer: num1 - num2
+			});
+		}
+	}
+	console.info(result);
+	return result;
+};
+
+createQuestion.sub20_2 = function(count) {
+	var result = [];
+
+	while (result.length < count) {
+		var num1 = random(10)+11;
+		var num2 = random(10);
+		// if (num1 < num2) {
+		// 	var tmp = num1;
+		// 	num1 = num2;
+		// 	num2 = tmp;
+		// }
+		if ((num1 - num2) < 10) {
 			if(isSame(result,num1,num2)) continue;
 			result.push({
 				number: [num1, num2],
