@@ -238,7 +238,7 @@ function startTime() {
 	g_timeResult.innerText="00:00";
 	g_timeId = setInterval(function(){
 		var seconds = Math.floor((Date.now() - g_begintime)/1000);
-		console.info(seconds);
+		//console.info(seconds);
 		g_timeResult.innerText = time2str(seconds);
 	},500);
 }
